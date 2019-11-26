@@ -18,49 +18,63 @@ def cell_is_suitable(row, col, queens_on_board):
     ])
 
 
-def find_new_position(queens_on_board, current_row = 8):
-    for row in range(current_row):
-        for col in range(1):
+def count_allocations(board_size, queens_on_board, current_row = 0, allocations_found = 0):
+    for row in range(current_row, board_size):
+        position_found = False
+        while not position_found:
+            for col in range(board_size):
+                position_found = cell_is_suitable(row, col,queens_on_board)
+                if position_found:
+                    queens_on_board.append((row, col))
+
+                if len(queens_on_board) == board_size:
+                    allocations_found += 1
+                elif len(queens_on_board) < board_size:
+                    allocations_found += count_allocations(
+                        board_size,
+                        queens_on_board,
+                        current_row+1,allocations_found)
+    return allocations_found
+
+
+count_allocations(4, [])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def find_new_position(board_size, queens_on_board, current_row=0):
+    for row in range(current_row, board_size):
+        position_found = False
+        while not position_found:
+            for col in range(board_size):
+                position_found = cell_is_suitable(row, col,queens_on_board)
+                if position_found:
+                    result
+
+
+
             pass
 
 
 def calc_num_of_allocations(N_queens):
     result = 0
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def go_to_location(player, direction):
-    try:
-        player['location'] = player['location']['connections'][direction]
-    except KeyError:
-        print(f'There is nothing on {direction}')
-
-
-
-def exep_tions():
-    a = 0
-    lst = [6,7,8]
-    try:
-        print(5/a)
-    except ZeroDivisionError:
-        print('Divide by zero...')
-        return
-    else:
-        print('else')
-    finally:
-        print('finaly!')
-
-
+    res
 
 
