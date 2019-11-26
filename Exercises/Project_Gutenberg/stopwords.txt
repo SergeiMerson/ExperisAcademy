@@ -183,6 +183,7 @@ know
 known
 knows
 l
+ll
 large
 largely
 last
