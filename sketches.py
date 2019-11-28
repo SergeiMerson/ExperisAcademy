@@ -29,9 +29,14 @@ def eight_queens():
     return ans
 
 
-import random
-random.
-
+def new_screen(func):
+    def orig_func(*args):
+        print('+' + '-' * 82 + '+')
+        print('|' + '-' * 82 + '|')
+        func(*args)
+        print('+' + '-' * 82 + '+')
+        print('|' + '-' * 82 + '|')
+    return orig_func()
 
 
 
@@ -39,8 +44,9 @@ def celcius_to_farenheit(func):
     return lambda *args: 1.8 * func(*args) + 32
 
 @celcius_to_farenheit
+@new_screen
 def get_temp(a, b):
-    return a * b
+    print( a * b)
 
 # ---------------------------------------------
 

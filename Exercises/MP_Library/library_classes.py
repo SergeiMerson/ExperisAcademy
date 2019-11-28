@@ -110,19 +110,40 @@ class Library:
 
     def add_author(self, first_name, last_name):
         # Get the list of existing authors:
-        author_list = self.authors.search_by_name(first_name, last_name)
-        if not author_list:
+        author = self.search_author(first_name, last_name)
+        if not author:
             author = self.authors.add(first_name, last_name)
         else:
+            print(f"Selected {author.first_name} {author.last_name}, ID: {author.id}")
+        return author
+
+    def search_author(self, first_name, last_name):
+        # Get the list of existing authors:
+        author_list = self.authors.search_by_name(first_name, last_name)
+        if author_list:
             print('There are several authors with such name:')
             for ind, a in enumerate(author_list, 1):
                 print(f'{ind}:', a.first_name, a.last_name)
-            user_answer = input('Do you want to choose existing record [index] or create a new one [other]? ')
+            user_answer = input('Do you want to choose existing record [index]/[N]? ')
             try:
                 author = author_list[int(user_answer) - 1]
             except KeyError or ValueError:
-                author = self.authors.add(first_name, last_name)
+                print(f"There is no author with such index: {user_answer}")
+                author = None
+        else:
+            author = None
         return author
+
+    def books_by_author(self, first_name, last_name):
+        author = self.search_author(first_name, last_name)
+        if author:
+            ::::::::::::::::::::::::::::
+
+    def search_by_title(self, title):
+        result = self.books.search_by_title(title)
+        for book in result:
+            author = self.authors.register[book.author_id]
+            print(f'Title: {book.title}, author: {author.first_name} {author.last_name}')
 
     def save_library(self):
         with open('library_manager.pkl', 'wb') as file:
@@ -133,21 +154,7 @@ class Library:
         with open('library_manager.pkl', 'rb') as file:
             self.authors, self.books = pickle.load(file)
 
-    def search_by_title(self, title):
-        result = self.books.search_by_title(title)
-        for book in result:
-            author = self.authors.register[book.author_id]
-            print(f'Title: {book.title}, author: {author.first_name} {author.last_name}')
-
-
 class TUI:
-    class Decorators:
-        @classmethod
-        def new_screen(func):
-            def orig_func(*args):
-                return func(*args)
-
-            print()
 
     def __init__(self, authors, books):
         self.authors = authors
@@ -157,6 +164,6 @@ class TUI:
 
     def print_items(self, authors):
         print('+' + '-' * 82 + '+')
-        print
+        print('|' + '-' * 82 + '|')
         for key, value in authors.items():
             print
