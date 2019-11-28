@@ -60,3 +60,16 @@ def celcius_to_farenheit(func):
 def get_temp():
     return 36.6
 
+
+class Decorators:
+    @classmethod
+    def decorate_print(cls, title='', dims=(82, 30)):
+        def wrapper(func):
+            def inner_func(*args, **kwargs):
+                print('\n' * dims[1], f"{(' ' + str(title) + ' ').center(dims[0], '=')}", '\n', sep='')
+                func(*args, **kwargs)
+                return func
+
+            return inner_func
+
+        return wrapper

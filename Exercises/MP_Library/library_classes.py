@@ -84,6 +84,9 @@ class BookRegister(Register):
     def search_by_title(self, title):
         return [b for b in self.get_items() if title.lower() in b.title.lower()]
 
+    def search_by_author(self, author_id):
+        return [b for b in self.get_items() if author_id == b.author_id]
+
     def get_book_info(self, book_id):
         try:
             book = self.register[book_id]
@@ -126,22 +129,29 @@ class Library:
                 print(f'{ind}:', a.first_name, a.last_name)
             user_answer = input('Do you want to choose existing record [index]/[N]? ')
             try:
-                author = author_list[int(user_answer) - 1]
-            except KeyError or ValueError:
+                user_answer = int(user_answer)
+                author = author_list[user_answer - 1]
+            except KeyError:
                 print(f"There is no author with such index: {user_answer}")
+                author = None
+            except ValueError:
+                print(f"Adding a new record for {first_name} {last_name}")
                 author = None
         else:
             author = None
+            print(f'There is no author {first_name} {last_name} in the Register')
         return author
 
-    def books_by_author(self, first_name, last_name):
+    def books_by_author(self, first_name='?', last_name='?'):
         author = self.search_author(first_name, last_name)
         if author:
-            ::::::::::::::::::::::::::::
+            book_list = self.books.search_by_author(author.id)
+            for book in book_list:
+                print(f'Title: {book.title}, book ID: {book.id}')
 
     def search_by_title(self, title):
-        result = self.books.search_by_title(title)
-        for book in result:
+        book_list = self.books.search_by_title(title)
+        for book in book_list:
             author = self.authors.register[book.author_id]
             print(f'Title: {book.title}, author: {author.first_name} {author.last_name}')
 
@@ -154,16 +164,3 @@ class Library:
         with open('library_manager.pkl', 'rb') as file:
             self.authors, self.books = pickle.load(file)
 
-class TUI:
-
-    def __init__(self, authors, books):
-        self.authors = authors
-        self.books = books
-        self.width = 82
-        self.height = 62
-
-    def print_items(self, authors):
-        print('+' + '-' * 82 + '+')
-        print('|' + '-' * 82 + '|')
-        for key, value in authors.items():
-            print
