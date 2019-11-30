@@ -7,15 +7,16 @@ root_info = {}
 exit = False
 
 while not exit:
-    user_input = input('Enter your command [or print "exit"]:')
-    command, arg = user_input.split(' ', maxsplit=1)
-    command, arg = command.lower().strip(), arg.lower().strip()
+    user_input = input('Enter your command [or print "exit"]:').split(' ', maxsplit=1)
+    command = user_input[0].lower().strip()
     if command == 'scan':
-        root_name, root_info = execution.scan(arg)
+        path = user_input[1].lower().strip()
+        root_name, root_info = execution.scan(path)
     elif command == 'dup':
-        execution.dup(arg, root_info)
+        csv_file = user_input[1].lower().strip()
+        execution.dup(csv_file, root_info)
     elif command == 'dirsize':
-        depth = int(arg) if len(arg) > 0 else False
+        depth = int(user_input[1].lower().strip()) if len(user_input) > 0 else False
         execution.dirsize(root_info, root_name, depth)
     elif command == 'exit':
         exit = True
