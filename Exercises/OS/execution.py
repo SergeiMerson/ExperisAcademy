@@ -11,6 +11,10 @@ def scan(path):
         return root_name, root_info
     except IOError:
         print(f"Can't scan {path}")
+    except NameError:
+        print('scan requires argument "path"')
+    except TypeError:
+        print('Couldn\'t recognize provided path')
 
 
 def dup(csv_file, dir_info):
