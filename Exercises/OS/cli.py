@@ -4,7 +4,7 @@ import execution
 exit = False
 
 while not exit:
-    user_input = input('Enter your command [or print "exit"]:').split(' ', maxsplit=1)
+    user_input = input('Enter your command [or print "exit"]: ').split(' ', maxsplit=1)
     command = user_input[0].lower().strip()
     if len(user_input) > 1:
         arg = user_input[1].lower().strip()

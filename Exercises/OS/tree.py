@@ -1,7 +1,3 @@
-import os
-import system_scan
-
-
 def print_line(name, size, levels=[], indent=4):
     # Print size:
     nodes = {'I': u'\u2502', 'T': u'\u251c', 'L': u'\u2514'}

@@ -1,47 +1,21 @@
 import pickle
 import json
-import base_classes as bc
+import registers
 import TUI as tui
 
 
 class Library:
     def __init__(self):
-        self.authors = bc.AuthorRegister()
-        self.books = bc.BookRegister()
+        self.authors = registers.AuthorRegister()
+        self.books = registers.BookRegister()
 
-    # -------------------------- Search --------------------------- #
-
-    def search_books_by_author(self, first_name='?', last_name='?'):
-        author = self.search_author(first_name, last_name)
-        if author:
-            list_of_results = []
-            book_list = self.books.search_by_author(author.id)
-            for book in book_list:
-                list_of_results.append([book.id, book.title, author.first_name + ' ' + author.last_name])
-            if book_list:
-                tui.print_list_of_items(f"Search results for: {first_name} {last_name}", list_of_results)
-                return author, book_list
-            else:
-                print(f"There is no books of {first_name} {last_name} in the Registry")
-
-    def search_book_by_title(self, title):
-        list_of_results = []
-        book_list = self.books.search_by_title(title)
-        for book in book_list:
-            author = self.authors.register[book.author_id]
-            list_of_results.append([book.id, book.title, author.first_name + ' ' + author.last_name])
-        if book_list:
-            tui.print_list_of_items(f"Search results for: {title}", list_of_results)
-        else:
-            print(f"Nothing was found for '{title}'")
+    # ==================================== Search ==================================== #
 
     def search_author(self, first_name, last_name):
-        # Get the list of existing authors:
         author_list = self.authors.search_by_name(first_name, last_name)
         if author_list:
-            print('There are several authors with such name:')
-            for ind, a in enumerate(author_list, 1):
-                print(f'{ind}:', a.first_name, a.last_name)
+            tui.print_list_of_items(f"Search result for author: {first_name} {last_name}",
+                                    author_list)
             user_answer = input('Do you want to choose existing record [index]/[N]? ')
             try:
                 user_answer = int(user_answer)
@@ -57,7 +31,26 @@ class Library:
             print(f'There is no author {first_name} {last_name} in the Register')
         return author
 
-    # ------------------------ Add / Delete ----------------------- #
+    def search_books_by_author(self, first_name='?', last_name='?'):
+        author = self.search_author(first_name, last_name)
+        if author:
+            list_of_results = []
+            book_list = self.books.search_by_author_id(author.id)
+            for book in book_list:
+                list_of_results.append([book.id, book.title, author.first_name + ' ' + author.last_name])
+            if book_list:
+                tui.print_list_of_items(f"Search results for books by {first_name} {last_name}",
+                                        list_of_results)
+                return author, book_list
+            else:
+                print(f"There is no books of {first_name} {last_name} in the Registry")
+
+    # ================================= Add / Delete ================================= #
+
+    def add_book(self, title, first_name, last_name):
+        # Select or add new author:
+        author = self.add_author(first_name, last_name)
+        _ = self.books.add(title, author.id)
 
     def add_author(self, first_name, last_name):
         # Get the list of existing authors:
@@ -80,12 +73,7 @@ class Library:
         except TypeError:
             pass
 
-    def add_book(self, title, first_name, last_name):
-        # Select or add new author:
-        author = self.add_author(first_name, last_name)
-        _ = self.books.add_book(title, author.id)
-
-    # ---------------------------- I/O ---------------------------- #
+    # ===================================== I/O ====================================== #
 
     def save_library(self):
         with open('library_manager.pkl', 'wb') as file:
@@ -93,8 +81,12 @@ class Library:
             print('Library was successfully saved on disk')
 
     def load_library(self):
-        with open('library_manager.pkl', 'rb') as file:
-            self.authors, self.books = pickle.load(file)
+        try:
+            with open('library_manager.pkl', 'rb') as file:
+                self.authors, self.books = pickle.load(file)
+                print('Library data was restored successfully')
+        except IOError:
+            print('No previous records were found...')
 
     def export_library(self):
         library_records = {}

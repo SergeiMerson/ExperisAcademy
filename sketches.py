@@ -73,3 +73,9 @@ class Decorators:
             return inner_func
 
         return wrapper
+
+
+
+
+def gen_header(title):
+    return '#' + str(title).center(80, '=') + '#'

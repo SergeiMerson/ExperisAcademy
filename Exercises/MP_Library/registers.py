@@ -1,23 +1,4 @@
-import random
-
-
-def generate_id():
-    letters = [chr(l) for l in list(range(65, 91)) + list(range(97, 123))]
-    return ''.join(random.choices(letters, k=5)) + str(random.choice(range(int(1e5), int(1e6))))
-
-
-class Author:
-    def __init__(self, first_name, last_name):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.id = generate_id()
-
-
-class Book:
-    def __init__(self, title, author_id):
-        self.title = title
-        self.author_id = author_id
-        self.id = author_id + '-' + generate_id()
+import basics
 
 
 class Register:
@@ -31,7 +12,7 @@ class Register:
         try:
             return self.register[key]
         except KeyError:
-            print('There is no such key')
+            print('There is no such ID')
 
     def reset_register(self):
         user_input = input('Do you really want to reset the Register and delete all records? [Y]/[N]: ')
@@ -43,12 +24,12 @@ class Register:
 class AuthorRegister(Register):
 
     def add(self, first_name, last_name):
-        author = Author(first_name, last_name)
+        author = basics.Author(first_name, last_name)
         self.register[author.id] = author
         print(f'Successfully added {first_name} {last_name} to the Register with ID: {author.id}')
         return author
 
-    def remove_author(self, author_id):
+    def remove(self, author_id):
         try:
             author = self.register[author_id]
             del self.register[author_id]
@@ -67,12 +48,12 @@ class AuthorRegister(Register):
 
 class BookRegister(Register):
 
-    def add_book(self, title, author_id):
-        book = Book(title, author_id)
+    def add(self, title, author_id):
+        book = basics.Book(title, author_id)
         self.register[book.id] = book
         return book
 
-    def remove_book(self, book_id):
+    def remove(self, book_id):
         try:
             book_title = self.register[book_id].title
             del self.register[book_id]
@@ -83,15 +64,5 @@ class BookRegister(Register):
     def search_by_title(self, title):
         return [b for b in self.get_items() if title.lower() in b.title.lower()]
 
-    def search_by_author(self, author_id):
+    def search_by_author_id(self, author_id):
         return [b for b in self.get_items() if author_id == b.author_id]
-
-    def get_book_info(self, book_id):
-        try:
-            book = self.register[book_id]
-            print(f'+--------------------------------------------------+')
-            print(f'| Title:    {book.title:<38s} |')
-            print(f'| AuthorID: {book.author_id:<38s} |')
-            print(f'+--------------------------------------------------+')
-        except KeyError:
-            print(f'There is no book with such ID: {book_id}')

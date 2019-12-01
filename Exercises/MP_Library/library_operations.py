@@ -1,4 +1,4 @@
-import library_classes as lc
+import library as lc
 
 
 library = lc.Library()
