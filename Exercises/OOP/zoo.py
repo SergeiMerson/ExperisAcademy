@@ -46,12 +46,12 @@ class Bird(Animal):
         phrase = None
         next_line = next(line_generator)
         wingspan, talks = int(next_line[0]), next_line[1]
-        if talks == 'Takls':
-            phrase = next(line_generator)[0]
+        if talks == 'Talks':
+            phrase = ' '.join(next(line_generator))
         return line_generator, Bird(name, species, int(mass), int(wingspan), talks, phrase)
 
 
-class Zoo:
+class Parser:
     class_dict = {'Mammal': Mammal, 'Reptile': Reptile, 'Bird': Bird}
 
     def __init__(self):
@@ -60,37 +60,34 @@ class Zoo:
     def line_generator(self, file_path):
         with open(file_path, 'r') as zoo_file:
             for line in zoo_file:
-                yield line.split()
-
-    def process_line(self, line, class_dict):
-        class_dict = {'Mammal': Mammal, 'Reptile': Reptile, 'Bird': Bird}
-
-            name, animal_type, species, weight = line[0], line[1], line[2], line[3]
-            animal = class_dict[line[1]]
+                yield line.strip().split()
 
     def parse_file(self, file_path):
         line_gen = self.line_generator(file_path)
-        line = next(line_gen)
-        name, animal_type, species, weight = line[0], line[1], line[2], line[3]
+
         while line_gen:
-            line_gen, self.catalog[name] = self.class_dict[animal_type].create(line_gen, name, species, weight)
+            try:
+                line = next(line_gen)
+                name, animal_type, species, weight = line[0], line[1], line[2], line[3]
+                line_gen, self.catalog[name] = self.class_dict[animal_type].create(line_gen, name, species, weight)
+            except StopIteration:
+                line_gen = False
+
+    def get_catalog(self):
+        return self.catalog
 
 
+class Zoo:
 
-file_path = 'Exercises/OOP/zoo_db.txt'
+    def __init__(self):
+        self.catalog = {}
+
+    def load_from_file(self, path_to_file):
+        parser = Parser()
+        parser.parse_file(path_to_file)
+        self.catalog = parser.get_catalog()
 
 
-def line_generator(file_path):
-    with open(file_path, 'r') as zoo_file:
-        for line in zoo_file:
-            yield line.split()
-
-
-fff = line_generator(file_path)
-
-class_dict = {'Mammal': Mammal, 'Reptile': Reptile, 'Bird': Bird}
-
-def process_line(line, class_dict):
-    if len(line) == 4:
-        name, animal_type, species, weight  = line[0], line[1], line[2], line[3]
-        animal = class_dict[line[1]]
+file_path = 'D:\Projects\ExperisAcademy\Exercises\OOP\zoo_db.txt'
+zoo = Zoo()
+zoo.load_from_file(file_path)
