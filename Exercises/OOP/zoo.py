@@ -1,13 +1,16 @@
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractmethod
+
 
 class Animal(ABC):
-    @abstractclassmethod
+
+    @abstractmethod
     def __init__(self, name, species, mass):
         self.name = name
         self.species = species
         self.mass = mass
 
-    @abstractclassmethod
+    @staticmethod
+    @abstractmethod
     def create(name, species, mass, line_generator):
         pass
 
@@ -30,8 +33,8 @@ class Reptile(Animal):
 
     @staticmethod
     def create(line_generator, name, species, mass):
-        venomus = next(line_generator)[0]
-        return line_generator, Reptile(name, species, int(mass), venomus)
+        venomous = next(line_generator)[0]
+        return line_generator, Reptile(name, species, int(mass), venomous)
 
 
 class Bird(Animal):
@@ -87,7 +90,34 @@ class Zoo:
         parser.parse_file(path_to_file)
         self.catalog = parser.get_catalog()
 
+    def get_animal_property(self, name, property):
+        animal = self.catalog[name]
+        try:
+            answer = getattr(animal, property)
+            return answer
+        except AttributeError:
+            print(f"{animal.name} hasn't such attribute...")
+            raise AttributeError
+
 
 file_path = 'D:\Projects\ExperisAcademy\Exercises\OOP\zoo_db.txt'
+
 zoo = Zoo()
+queries = {'s':'species', 'm':'mass','l':'litter','v':'venomous','w':'wingspan','t':'talks'}
+proposal = 'Query animal species[s], mass[m], litter[l], venom[v], wingspan[w], talk[t] or exit session[e]?'
+run = True
+while run:
+    user_answer = input(proposal)
+    if user_answer == 'e':
+        print('Goodbye!')
+        run = False
+    elif user_answer in queries.keys():
+        property = queries[user_answer]
+        name = input('Animal Name?')
+        try:
+            answer = zoo.get_animal_property(name, )
+
+
+
+
 zoo.load_from_file(file_path)
