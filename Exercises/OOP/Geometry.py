@@ -14,7 +14,7 @@ class Circle:
         self.size *= n
 
     def __str__(self):
-        return 'Circle'.center(30,'-') +\
+        return 'Circle'.center(30, '-') + \
                f'\n\tRadius:\t\t{self.size}\n\tPerimeter:\t{self.perimeter():.2f}\n\tArea:\t\t{self.area():.2f}'
 
 
@@ -22,7 +22,7 @@ class Square(Circle):
     coefficient = 4
 
     def __str__(self):
-        return 'Square'.center(30,'-') +\
+        return 'Square'.center(30, '-') + \
                f"\n\tSide:\t\t{self.size}\n\tPerimeter:\t{self.perimeter():.2f}\n\tArea:\t\t{self.area():.2f}"
 
 

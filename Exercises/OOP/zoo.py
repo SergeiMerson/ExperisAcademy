@@ -100,12 +100,14 @@ class Zoo:
             raise AttributeError
 
 
-file_path = 'D:\Projects\ExperisAcademy\Exercises\OOP\zoo_db.txt'
-
 zoo = Zoo()
-queries = {'s':'species', 'm':'mass','l':'litter','v':'venomous','w':'wingspan','t':'talks'}
+file_path = 'D:\Projects\ExperisAcademy\Exercises\OOP\zoo_db.txt'
+zoo.load_from_file(file_path)
+
+queries = {'s': 'species', 'm': 'mass', 'l': 'litter', 'v': 'venomous', 'w': 'wingspan', 't': 'talks'}
 proposal = 'Query animal species[s], mass[m], litter[l], venom[v], wingspan[w], talk[t] or exit session[e]?'
 run = True
+
 while run:
     user_answer = input(proposal)
     if user_answer == 'e':
@@ -115,9 +117,9 @@ while run:
         property = queries[user_answer]
         name = input('Animal Name?')
         try:
-            answer = zoo.get_animal_property(name, )
-
-
-
-
-zoo.load_from_file(file_path)
+            answer = zoo.get_animal_property(name, property)
+            print(f"{name} {property} is {answer}")
+        except AttributeError:
+            print(f"{name} has no such quality")
+        except KeyError:
+            print(f"There is no animal called {name}")

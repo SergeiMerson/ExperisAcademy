@@ -34,7 +34,7 @@ class Tree:
 
 
 class Strategy:
-    def __init__(self, sep = ', ', end='\n'):
+    def __init__(self, sep=', ', end='\n'):
         self.storage = []
         self.sep = sep
         self.end = end
@@ -49,5 +49,5 @@ class Strategy:
 
 
 tree = Tree()
-[tree.add(i) for i in [10,9,8,7,12,15,52,31,1,14,29,19,13]]
+[tree.add(i) for i in [10, 9, 8, 7, 12, 15, 52, 31, 1, 14, 29, 19, 13]]
 tree.traverse_with_strategy(strategy=Strategy(sep=' - ').accumulate)

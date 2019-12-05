@@ -1,5 +1,4 @@
-def get_file_catalog(dir_info, file_catalog = {}):
-
+def get_file_catalog(dir_info, file_catalog={}):
     for file_name, file_info in dir_info['files'].items():
         hash = file_info['hash']
         file_catalog[hash] = file_catalog.get(hash, {})
