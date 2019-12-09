@@ -1,6 +1,37 @@
-  
+#%% md
 
- 
+#### 1. Write a Pandas program to get the powers of an array values element-wise.   
+Note: First array elements raised to powers from second array  
+Sample data: {'X':[78,85,96,80,86], 'Y':[84,94,89,83,86],'Z':[86,97,96,72,83]}  
+Expected Output:  
+X Y Z  
+0 78 84 86  
+1 85 94 97  
+2 96 89 96  
+3 80 83 72  
+4 86 86 83  
+
+#%%
+
+#%% md
+
+#### 2. Write a Pandas program to create and display a DataFrame from a specified dictionary data which has the index labels.   
+Sample Python dictionary data and list labels:  
+exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],  
+'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],  
+'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],  
+'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']}  
+labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']  
+Expected Output:  
+attempts name qualify score  
+a 1 Anastasia yes 12.5  
+b 3 Dima no 9.0  
+.... i 2 Kevin no 8.0  
+j 1 Jonas yes 19.0  
+
+#%%
+
+#%% md
 
 #### 3. Write a Pandas program to display a summary of the basic information about a specified DataFrame and its data.   
 Sample Python dictionary data and list labels:  
@@ -18,6 +49,10 @@ Data columns (total 4 columns):
 memory usage: 400.0+ bytes  
 None  
 
+#%%
+
+#%% md
+
 #### 4. Write a Pandas program to get the first 3 rows of a given DataFrame.   
 Sample Python dictionary data and list labels:  
 exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],  
@@ -31,6 +66,10 @@ attempts name qualify score
 a 1 Anastasia yes 12.5  
 b 3 Dima no 9.0  
 c 2 Katherine yes 16.5  
+
+#%%
+
+#%% md
 
 #### 5. Write a Pandas program to select the 'name' and 'score' columns from the following DataFrame.   
 Sample Python dictionary data and list labels:  
@@ -49,6 +88,10 @@ c Katherine 16.5
 i Kevin 8.0  
 j Jonas 19.0  
 
+#%%
+
+#%% md
+
 #### 6. Write a Pandas program to select the specified columns and rows from a given data frame.   
 Sample Python dictionary data and list labels:  
 Select 'name' and 'score' columns in rows 1, 3, 5, 6 from the following data frame.  
@@ -65,6 +108,10 @@ d James NaN
 f Michael 20.0  
 g Matthew 14.5  
 
+#%%
+
+#%% md
+
 #### 7. Write a Pandas program to select the rows where the number of attempts in the examination is greater than 2.   
 Sample Python dictionary data and list labels:  
 exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],  
@@ -79,6 +126,10 @@ b Dima 9.0 3 no
 d James NaN 3 no  
 f Michael 20.0 3 yes  
 
+#%%
+
+#%% md
+
 #### 8. Write a Pandas program to count the number of rows and columns of a DataFrame.   
 Sample Python dictionary data and list labels:  
 exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],  
@@ -89,6 +140,10 @@ labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 Expected Output:  
 Number of Rows: 10  
 Number of Columns: 4  
+
+#%%
+
+#%% md
 
 #### 9. Write a Pandas program to select the rows where the score is missing, i.e. is NaN.   
 Sample Python dictionary data and list labels:  
@@ -102,6 +157,10 @@ Rows where score is missing:
 attempts name qualify score  
 d 3 James no NaN  
 h 1 Laura no NaN  
+
+#%%
+
+#%% md
 
 #### 10. Write a Pandas program to select the rows the score is between 15 and 20 (inclusive).   
 Sample Python dictionary data and list labels:  
@@ -117,6 +176,10 @@ c 2 Katherine yes 16.5
 f 3 Michael yes 20.0  
 j 1 Jonas yes 19.0  
 
+#%%
+
+#%% md
+
 #### 11. Write a Pandas program to select the rows where number of attempts in the examination is less than 2 and score greater than 15.   
 Sample Python dictionary data and list labels:  
 exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],  
@@ -129,6 +192,10 @@ Rows where score between 15 and 20 (inclusive):
 attempts name qualify score  
 c 2 Katherine yes 16.5  
 j 1 Jonas yes 19.0  
+
+#%%
+
+#%% md
 
 #### 12. Write a Pandas program to change the score in row 'd' to 11.5.   
 Sample Python dictionary data and list labels:  
@@ -147,6 +214,10 @@ c 2 Katherine yes 16.5
 i 2 Kevin no 8.0  
 j 1 Jonas yes 19.0  
 
+#%%
+
+#%% md
+
 #### 13. Write a Pandas program to calculate the sum of the examination attempts by the students.   
 Sample Python dictionary data and list labels:  
 exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],  
@@ -158,6 +229,10 @@ Expected Output:
 Sum of the examination attempts by the students:  
 19  
 
+#%%
+
+#%% md
+
 #### 14. Write a Pandas program to calculate the mean score for each different student in DataFrame.   
 Sample Python dictionary data and list labels:  
 exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],  
@@ -168,6 +243,10 @@ labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 Expected Output:  
 Mean score for each different student in data frame:  
 13.5625  
+
+#%%
+
+#%% md
 
 #### 15. Write a Pandas program to append a new row 'k' to data frame with given values for each column. Now delete the new row and return the original DataFrame.   
 Sample Python dictionary data and list labels:  
@@ -195,6 +274,10 @@ b 3 Dima no 9.0
 i 2 Kevin no 8.0  
 j 1 Jonas yes 19.0  
 
+#%%
+
+#%% md
+
 #### 16. Write a Pandas program to sort the DataFrame first by 'name' in descending order, then by 'score' in ascending order.   
 Sample Python dictionary data and list labels:  
 exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],  
@@ -213,6 +296,10 @@ b 3 Dima no 9.0
 i 2 Kevin no 8.0  
 j 1 Jonas yes 19.0  
 
+#%%
+
+#%% md
+
 #### 17. Write a Pandas program to replace the 'qualify' column contains the values 'yes' and 'no' with True and False.   
 Sample Python dictionary data and list labels:  
 exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],  
@@ -230,6 +317,10 @@ b 3 Dima False 9.0
 i 2 Kevin False 8.0  
 j 1 Jonas True 19.0  
 
+#%%
+
+#%% md
+
 #### 18. Write a Pandas program to change the name 'James' to 'Suresh' in name column of the DataFrame.   
 Sample Python dictionary data and list labels:  
 exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],  
@@ -245,6 +336,10 @@ b 3 Dima no 9.0
 .......  
 i 2 Kevin no 8.0  
 j 1 Jonas yes 19.0  
+
+#%%
+
+#%% md
 
 #### 19. Write a Pandas program to delete the 'attempts' column from the DataFrame.   
 Sample Python dictionary data and list labels:  
@@ -262,6 +357,10 @@ b Dima no 9.0
 i Kevin no 8.0  
 j Jonas yes 19.0  
 
+#%%
+
+#%% md
+
 #### 20. Write a Pandas program to insert a new column in existing DataFrame.   
 Sample Python dictionary data and list labels:  
 exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],  
@@ -278,6 +377,10 @@ b 3 Dima no 9.0 Blue
 i 2 Kevin no 8.0 Green  
 j 1 Jonas yes 19.0 Red  
 
+#%%
+
+#%% md
+
 #### 21. Write a Pandas program to iterate over rows in a DataFrame.   
 Sample Python dictionary data and list labels:  
 exam_data = [{'name':'Anastasia', 'score':12.5}, {'name':'Dima','score':9}, {'name':'Katherine','score':16.5}]  
@@ -285,6 +388,10 @@ Expected Output:
 Anastasia 12.5  
 Dima 9.0  
 Katherine 16.5  
+
+#%%
+
+#%% md
 
 #### 22. Write a Pandas program to get list from DataFrame column headers.   
 Sample Python dictionary data and list labels:  
@@ -295,6 +402,10 @@ exam_data = {'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Micha
 labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']  
 Expected Output:  
 ['attempts', 'name', 'qualify', 'score']  
+
+#%%
+
+#%% md
 
 #### 23. Write a Pandas program to rename columns of a given DataFrame   
 Sample data:  
@@ -309,6 +420,10 @@ Column1 Column2 Column3
 1 2 5 8  
 2 3 6 9  
 
+#%%
+
+#%% md
+
 #### 24. Write a Pandas program to select rows from a given DataFrame based on values in some columns.   
 Sample data:  
 Original DataFrame  
@@ -322,6 +437,10 @@ Rows for colum1 value == 4
 col1 col2 col3  
 1 4 5 8  
 3 4 7 0  
+
+#%%
+
+#%% md
 
 #### 25. Write a Pandas program to change the order of a DataFrame columns.   
 Sample data:  
@@ -339,6 +458,10 @@ col3 col2 col1
 2 9 6 3  
 3 0 7 4  
 4 1 8 5  
+
+#%%
+
+#%% md
 
 #### 26. Write a Pandas program to add one row in an existing DataFrame.   
 Sample data:  
@@ -358,6 +481,10 @@ col1 col2 col3
 4 5 8 1  
 5 10 11 12  
 
+#%%
+
+#%% md
+
 #### 27. Write a Pandas program to write a DataFrame to CSV file using tab separator.   
 Sample data:  
 Original DataFrame  
@@ -375,12 +502,20 @@ col1\tcol2\tcol3
 3 4\t7\t0  
 4 5\t8\t1  
 
+#%%
+
+#%% md
+
 #### 28. Write a Pandas program to count city wise number of people from a given of data set (city, name of the person).   
 Sample data:  
 city Number of people  
 0 California 4  
 1 Georgia 2  
 2 Los Angeles 4  
+
+#%%
+
+#%% md
 
 #### 29. Write a Pandas program to delete DataFrame row(s) based on given column value.   
 Sample data:  
@@ -398,6 +533,10 @@ col1 col2 col3
 3 4 7 0  
 4 5 8 1  
 
+#%%
+
+#%% md
+
 #### 30. Write a Pandas program to widen output display to see more columns.   
 Sample data:  
 Original DataFrame  
@@ -407,6 +546,10 @@ col1 col2 col3
 2 3 6 9  
 3 4 7 0  
 4 5 8 1  
+
+#%%
+
+#%% md
 
 #### 31. Write a Pandas program to select a row of series/dataframe by given integer index.   
 Sample data:  
@@ -420,6 +563,10 @@ col1 col2 col3
 Index-2: Details  
 col1 col2 col3  
 2 3 6 9  
+
+#%%
+
+#%% md
 
 #### 32. Write a Pandas program to replace all the NaN values with Zero's in a column of a dataframe.   
 Sample data:  
@@ -447,6 +594,10 @@ attempts name qualify score
 7 1 Laura no 0.0  
 8 2 Kevin no 8.0  
 9 1 Jonas yes 19.0  
+
+#%%
+
+#%% md
 
 #### 33. Write a Pandas program to convert index in a column of the given dataframe.   
 Sample data:  
@@ -487,6 +638,10 @@ index attempts name qualify score
 8 2 Kevin no 8.0  
 9 1 Jonas yes 19.0  
 
+#%%
+
+#%% md
+
 #### 34. Write a Pandas program to set a given value for particular cell in  DataFrame using index value.   
 Sample data:  
 Original DataFrame  
@@ -514,6 +669,10 @@ attempts name qualify score
 8 2 Kevin no 10.2  
 9 1 Jonas yes 19.0  
 
+#%%
+
+#%% md
+
 #### 35. Write a Pandas program to count the NaN values in one or more columns in DataFrame.   
 Sample data:  
 Original DataFrame  
@@ -531,6 +690,10 @@ attempts name qualify score
 Number of NaN values in one or more columns:  
 2  
 
+#%%
+
+#%% md
+
 #### 36. Write a Pandas program to drop a list of rows from a specified DataFrame.   
 Sample data:  
 Original DataFrame  
@@ -545,6 +708,10 @@ col1 col2 col3
 0 1 4 7  
 1 4 5 8  
 3 4 7 0  
+
+#%%
+
+#%% md
 
 #### 37. Write a Pandas program to reset index in a given DataFrame.   
 Sample data:  
@@ -581,6 +748,10 @@ index attempts name qualify score
 6 8 2 Kevin no 8.0  
 7 9 1 Jonas yes 19.0  
 
+#%%
+
+#%% md
+
 #### 38. Write a Pandas program to devide a DataFrame in a given ratio.  
 Sample data:  
 Original DataFrame:  
@@ -610,6 +781,10 @@ Original DataFrame:
 7 -0.726346 -0.535147  
 9 1.051666 -0.441533  
 
+#%%
+
+#%% md
+
 #### 39. Write a Pandas program to combining two series into a DataFrame.   
 Sample data:  
 Data Series:  
@@ -632,6 +807,10 @@ New DataFrame combining two series:
 2 python php  
 3 300.12 30.12  
 4 400 40  
+
+#%%
+
+#%% md
 
 #### 40. Write a Pandas program to shuffle a given DataFrame rows.   
 Sample data:  
@@ -660,6 +839,10 @@ attempts name qualify score
 8 2 Kevin no 8.0  
 2 2 Katherine yes 16.5  
 
+#%%
+
+#%% md
+
 #### 41. Write a Pandas program to convert DataFrame column type from string to datetime.  
   
 Sample data:  
@@ -674,6 +857,10 @@ Original DataFrame (string to datetime):
 1 2000-03-12  
 2 2000-03-13  
 
+#%%
+
+#%% md
+
 #### 42. Write a Pandas program to rename a specific column name in a given DataFrame.   
 Sample data:  
 Original DataFrame  
@@ -687,6 +874,10 @@ col1 Column2 col3
 1 2 5 8  
 2 3 6 9  
 
+#%%
+
+#%% md
+
 #### 43. Write a Pandas program to get a list of a specified column of a DataFrame.   
 Sample data:  
 Powered by  
@@ -697,6 +888,10 @@ col1 col2 col3
 2 3 6 9  
 Col2 of the DataFrame to list:  
 [4, 5, 6]  
+
+#%%
+
+#%% md
 
 #### 44. Write a Pandas program to create a DataFrame from a Numpy array and specify the index column and column headers.   
 Sample Output:  
@@ -709,6 +904,10 @@ Index12 0 0.0 0.0
 Index13 0 0.0 0.0  
 Index14 0 0.0 0.0  
 Index15 0 0.0 0.0  
+
+#%%
+
+#%% md
 
 #### 45. Write a Pandas program to find the row for where the value of a given column is maximum.   
 Sample Output:  
@@ -726,6 +925,10 @@ Row where col2 has maximum value:
 Row where col3 has maximum value:  
 2  
 
+#%%
+
+#%% md
+
 #### 46. Write a Pandas program to check whether a given column is present in a DataFrame or not.   
 Sample data:  
 Original DataFrame  
@@ -737,6 +940,10 @@ col1 col2 col3
 4 7 5 11  
 Col4 is not present in DataFrame.  
 Col1 is present in DataFrame.  
+
+#%%
+
+#%% md
 
 #### 47. Write a Pandas program to get the specified row value of a given DataFrame.   
 Sample data:  
@@ -758,6 +965,10 @@ col2 9
 col3 1  
 Name: 3, dtype: int64  
 
+#%%
+
+#%% md
+
 #### 48. Write a Pandas program to get the datatypes of columns of a DataFrame.   
 Sample data:  
 Original DataFrame:  
@@ -774,9 +985,17 @@ qualify object
 score float64  
 dtype: object  
 
+#%%
+
+#%% md
+
 #### 49. Write a Pandas program to append data to an empty DataFrame.   
 Sample data:  
 Original DataFrame: After appending some data: col1 col2 0 0 0 1 1 1 2 2 2  
+
+#%%
+
+#%% md
 
 #### 50. Write a Pandas program to sort a given DataFrame by two or more columns.   
 Sample data:  
@@ -799,6 +1018,10 @@ attempts name qualify score
 1 3 Dima no 9.0  
 3 3 James no NaN  
 5 3 Michael yes 20.0  
+
+#%%
+
+#%% md
 
 #### 51. Write a Pandas program to convert the datatype of a given column (floats to ints).   
 Sample data:  
@@ -834,6 +1057,10 @@ qualify object
 score int64  
 dtype: object  
 
+#%%
+
+#%% md
+
 #### 52. Write a Pandas program to remove infinite values from a given DataFrame.   
 Sample data:  
 Original DataFrame:  
@@ -853,6 +1080,10 @@ Removing infinite values:
 4 NaN  
 5 NaN  
 
+#%%
+
+#%% md
+
 #### 53. Write a Pandas program to insert a given column at a specific column index in a DataFrame.   
 Sample data:  
 Original DataFrame  
@@ -870,6 +1101,10 @@ col1 col2 col3
 3 4 9 1  
 4 7 5 11  
 
+#%%
+
+#%% md
+
 #### 54. Write a Pandas program to convert a given list of lists into a Dataframe.   
 Sample data:  
 Original list of lists:  
@@ -878,6 +1113,10 @@ New DataFrame
 col1 col2  
 0 2 4  
 1 1 3  
+
+#%%
+
+#%% md
 
 #### 55. Write a Pandas program to group by the first column and get second column as lists in rows.   
 Sample data:  
@@ -897,6 +1136,10 @@ C2 [3, 3, 4, 5]
 C3 [6]  
 Name: col2, dtype: object  
 
+#%%
+
+#%% md
+
 #### 56. Write a Pandas program to get column index from column name of a given DataFrame.   
 Sample Output:  
 Original DataFrame  
@@ -909,6 +1152,10 @@ col1 col2 col3
 Index of 'col2'  
 1  
 
+#%%
+
+#%% md
+
 #### 57. Write a Pandas program to count number of columns of a DataFrame.   
 Sample Output:  
 Original DataFrame  
@@ -920,6 +1167,10 @@ col1 col2 col3
 4 7 5 11  
 Number of columns:  
 3  
+
+#%%
+
+#%% md
 
 #### 58. Write a Pandas program to select all columns, except one given column in a DataFrame.   
 Sample Output:  
@@ -938,6 +1189,10 @@ col1 col2
 3 4 9  
 4 7 5  
 
+#%%
+
+#%% md
+
 #### 59. Write a Pandas program to get first n records of a DataFrame.   
 Sample Output:  
 Original DataFrame  
@@ -954,6 +1209,10 @@ col1 col2 col3
 1 2 5 5  
 2 3 6 8  
 
+#%%
+
+#%% md
+
 #### 60. Write a Pandas program to get last n records of a DataFrame.   
 Sample Output:  
 Original DataFrame  
@@ -969,6 +1228,10 @@ col1 col2 col3
 3 4 9 12  
 4 7 5 1  
 5 11 0 11  
+
+#%%
+
+#%% md
 
 #### 61. Write a Pandas program to get topmost n records within each group of a DataFrame.   
 Sample Output:  
@@ -995,6 +1258,10 @@ col1 col2 col3
 5 11 0 11  
 2 3 6 8  
 
+#%%
+
+#%% md
+
 #### 62. Write a Pandas program to remove first n rows of a given DataFrame.   
 Sample Output:  
 Original DataFrame  
@@ -1011,6 +1278,10 @@ col1 col2 col3
 4 7 5 1  
 5 11 0 11  
 
+#%%
+
+#%% md
+
 #### 63. Write a Pandas program to remove last n rows of a given DataFrame.   
 Sample Output:  
 Original DataFrame  
@@ -1026,4 +1297,6 @@ col1 col2 col3
 0 1 4 7  
 1 2 5 5  
 2 3 6 8  
+
+#%%
 
