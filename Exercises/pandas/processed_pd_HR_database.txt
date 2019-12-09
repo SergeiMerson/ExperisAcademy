@@ -1,0 +1,144 @@
+#%% md
+
+#### 1. Write a Pandas program to display all the records of REGIONS file.  
+
+#%%
+
+#%% md
+
+#### 2. Write a Pandas program to display all the location id from locations file.  
+
+#%%
+
+#%% md
+
+#### 3. Write a Pandas program to extract first 7 records from employees file.  
+
+#%%
+
+#%% md
+
+#### 4. Write a Pandas program to select distinct department id from employees file.  
+
+#%%
+
+#%% md
+
+#### 5. Write a Pandas program to display the first and last name, and department number for all employees whose last name is "McEwen".  
+
+#%%
+
+#%% md
+
+#### 6. Write a Pandas program to display the first, last name, salary and department number for those employees whose first name starts with the letter 'S'.  
+
+#%%
+
+#%% md
+
+#### 7. Write a Pandas program to display the first, last name, salary and department number for those employees whose first name does not contain the letter 'M'.  
+
+#%%
+
+#%% md
+
+#### 8. Write a Pandas program to display the first name, last name, salary and department number in ascending order by department number.  
+
+#%%
+
+#%% md
+
+#### 9. Write a Pandas program to display the first name, last name, salary and department number in descending order by first name.  
+
+#%%
+
+#%% md
+
+#### 10. Write a Pandas program to display the first name, last name, salary and manger id where manager ids are null.  
+
+#%%
+
+#%% md
+
+#### 11. Write a Pandas program to display the first name, last name, salary and manger id where manager ids are not null.  
+
+#%%
+
+#%% md
+
+#### 12. Write a Pandas program to create and display a boolean series, where True for not null and False for null values or missing values in state_province column of locations file.  
+
+#%%
+
+#%% md
+
+#### 13. Write a Pandas program to create a boolean series selecting rows with one or more nulls from locations file.  
+
+#%%
+
+#%% md
+
+#### 14. Write a Pandas program to count the NaN values of all the columns of locations file.  
+
+#%%
+
+#%% md
+
+#### 15. Write a Pandas program to display the first name, last name, salary and department number for those employees whose first name ends with the letter 'm'.  
+
+#%%
+
+#%% md
+
+#### 16. Write a Pandas program to display the first name, last name, salary and department number for those employees whose first name ends with the letter 'd' or 'n' or 's' and also arrange the result in descending order by department id.  
+
+#%%
+
+#%% md
+
+#### 17. Write a Pandas program to display the first name, last name, salary and department number for employees who works either in department 70 or 90.  
+
+#%%
+
+#%% md
+
+#### 18. Write a Pandas program to display the first name, last name, salary and department number for those employees whose managers are hold the ID 120, 103 or 145.  
+
+#%%
+
+#%% md
+
+#### 19. Write a Pandas program to display the first, last name, salary and department number for those employees who holds a letter n as a 3rd character in their first name.  
+
+#%%
+
+#%% md
+
+#### 20. Write a Pandas program to display the first name, job id, salary and department for those employees not working in the departments 50,30 and 80.  
+
+#%%
+
+#%% md
+
+#### 21. Write a Pandas program to display the ID for those employees who did two or more jobs in the past.  
+
+#%%
+
+#%% md
+
+#### 22. Write a Pandas program to calculate minimum, maximum and mean salary from employees file.  
+
+#%%
+
+#%% md
+
+#### 23. Write a Pandas program to display the details of jobs in descending sequence on job title.  
+
+#%%
+
+#%% md
+
+#### 24. Write a Pandas program to display the first and last name and date of joining of the employees who is either Sales Representative or Sales Man.  
+
+#%%
+
